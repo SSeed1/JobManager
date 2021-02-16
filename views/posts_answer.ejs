@@ -1,0 +1,29 @@
+<!doctype html>
+ <html lang="en">
+ <head>
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1,
+shrink-to-fit=no">
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+ <title>New Posts</title>
+ </head>
+ <body>
+ <div class="container">
+ <%- include("partials/navbar.ejs") %>
+ <div class="jumbotron">
+ <h1>New posts is created</h1>
+ <p>Title: <%-formData.title %></p>
+ <p>Your Category is: <%-formData.category %></p>
+ <p>Body: <%-formData.body %></p>
+ </div>
+</div>
+ <!-- JavaScript -->
+ <script src="/jquery/jquery.min.js"></script>
+ <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+ </body>
+</html>

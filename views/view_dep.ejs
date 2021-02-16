@@ -1,0 +1,58 @@
+ <html lang="en">
+ <head>
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1,
+shrink-to-fit=no">
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+ <title>OrgPro</title>
+ </head>
+ <body>
+ <div class="container">
+	<%- include("partials/navbar.ejs") %>
+	
+ <div class="jumbotron">
+	<h3><%- dep["name"] %></h3>
+	<br>
+	<p>Total count:</p>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">  </th>
+            <th scope="col">  </th>
+          </tr>
+        </thead>
+        <tbody>
+        <% emp.forEach(function(emps) { %>
+          <tr>
+            <td>
+              <img src="/photos/<%- emps["photo"] %>" width="50" height="50">
+            </td>
+           
+            <td><%- emps["name"] %></td>	
+            <td><%- emps["surname"] %></td>
+            <td>
+              <a href="/post/<%- dep["name"] %>/employes/<%- emps["id"] %>" class="btn btn-primary">Show</a>
+            </td>
+            <% if (currentUser.name=="admin"){ if(emps["name"]!="admin"){%>
+           <form method="post" action="/delete" > <td>
+             <a href="/post/<%- dep["name"] %>/employes/<%- emps["id"] %>/delete" class="btn btn-danger">Delete</a>
+            </td>
+            <% }else{}} %>
+          </tr>
+        <% }) %>
+        </tbody>
+      </table>
+ </div>
+
+ <!-- JavaScript -->
+ <%- include("partials/scripts.ejs") %>
+ </body>
+
+ </html>
